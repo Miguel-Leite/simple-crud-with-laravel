@@ -27,7 +27,7 @@ Route::get('/products/edit/{id?}', [ProductsController::class,'edit'])
 ->name('products.edit')
 ->where(['id' => '[0-9]+']);
 
-Route::get('/products/update/{id?}', [ProductsController::class,'update'])
+Route::put('/products/update/{id?}', [ProductsController::class,'update'])
 ->name('products.update')
 ->where(['id' => '[0-9]+']);
 
