@@ -14,12 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-
-Route::get('/products',[ProductsController::class,'index'])
+Route::get('/',[ProductsController::class,'index'])
     ->name('products.index');
 
 Route::get('/products/create',[ProductsController::class,'create'])
@@ -32,7 +27,7 @@ Route::get('/products/edit/{id?}', [ProductsController::class,'edit'])
 ->name('products.edit')
 ->where(['id' => '[0-9]+']);
 
-Route::put('/products/update/{id?}', [ProductsController::class,'update'])
+Route::get('/products/update/{id?}', [ProductsController::class,'update'])
 ->name('products.update')
 ->where(['id' => '[0-9]+']);
 
