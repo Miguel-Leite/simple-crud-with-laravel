@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProductsController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,7 +15,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/',[ProductsController::class,'index'])
+Route::get('/', [AuthController::class,'index'])
+    ->name('auth.index');
+
+Route::post('/auth', [AuthController::class,'auth'])
+    ->name('auth.user');
+
+Route::get('/products',[ProductsController::class,'index'])
     ->name('products.index');
 
 Route::get('/products/create',[ProductsController::class,'create'])
